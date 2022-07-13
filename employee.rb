@@ -9,6 +9,10 @@ class Employee
     @name = name
   end
 
+  def print_name
+    puts "Name: #{name}"
+  end
+
   def salary=(salary)
     raise "A salary of #{salary} isn't valid!" if salary.negative?
 
@@ -20,12 +24,6 @@ class Employee
     self.salary = salary
   end
 
-  def print_pay_stub
-    puts "Name: #{@name}"
-    pay_for_period = (@salary / 365.0) * 14
-    formatted_pay = format('%.2f', pay_for_period)
-    puts "Pay This Period: $#{formatted_pay}"
-  end
 end
 
 class SalariedEmployee < Employee
@@ -38,15 +36,15 @@ class SalariedEmployee < Employee
   end
 
   def initialize(name = 'Anonymous', salary = 0.0)
-    super(name)
+    self.name = name
     self.salary = salary
   end
 
   def print_pay_stub
-    super
+    self.print_name
     pay_for_period = (@salary / 365.0) * 14
     formatted_pay = format("$%.2f", pay_for_period)
-    puts "Pay This Period: $#{formatted_pay}"
+    puts "Pay This Period: #{formatted_pay}"
   end
 end
 
@@ -72,7 +70,7 @@ class HourlyEmployee < Employee
   end
 
   def print_pay_stub
-    super
+    self.print_name
     pay_for_period = hourly_wage * hours_per_week * 2
     formatted_pay = format("$%.2f", pay_for_period)
     puts "Pay This Period: #{formatted_pay}"
@@ -81,11 +79,7 @@ class HourlyEmployee < Employee
 end
 
 
-Employee.new('Jane Doe', 50_000).print_pay_stub
-Employee.new('Jane Doe').print_pay_stub
-Employee.new.print_pay_stub
-
-salaried_employee = SalariedEmployee.new('Jane Doe', 50000)
+salaried_employee = SalariedEmployee.new('John Smith', 50000)
 salaried_employee.print_pay_stub
 hourly_employee = HourlyEmployee.new('John Smith', 14.97, 30)
 hourly_employee.print_pay_stub
