@@ -81,9 +81,9 @@ class HourlyEmployee < Employee
 end
 
 
-#Employee.new('Jane Doe', 50_000).print_pay_stub
-#Employee.new('Jane Doe').print_pay_stub
-#Employee.new.print_pay_stub
+Employee.new('Jane Doe', 50_000).print_pay_stub
+Employee.new('Jane Doe').print_pay_stub
+Employee.new.print_pay_stub
 
 salaried_employee = SalariedEmployee.new('Jane Doe', 50000)
 salaried_employee.print_pay_stub
