@@ -14,4 +14,3 @@ class Friend < Person
 end
 
 puts Friend.new.greet_by_name('Meghan')
-
