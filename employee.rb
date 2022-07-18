@@ -48,6 +48,7 @@ class SalariedEmployee < Employee
 end
 
 class HourlyEmployee < Employee
+
   def self.security_guard(name)
     HourlyEmployee.new(name, 19.25, 30)
   end
