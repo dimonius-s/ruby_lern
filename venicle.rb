@@ -38,6 +38,6 @@ class Truck < Venicle
   end
 end
 
-# truck = Truck.new
-# truck.load_bed('259 bouncy balls')
-# puts "The truck is carrying #{truck.cargo}"
+truck = Truck.new
+truck.load_bed('259 bouncy balls')
+puts "The truck is carrying #{truck.cargo}"
